@@ -2,11 +2,13 @@ import express from 'express';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import UserRouter from './routes/user.route.js'
-
+import AuthRouter from './routes/auth.route.js'
+const app=express()
+app.use(express.json())
 // Configuration de dotenv
 dotenv.config();
 
-const app = express();
+
 const PORT = process.env.PORT || 3000;
 
 // Vérification de la variable d'environnement
@@ -29,3 +31,4 @@ mongoose.connect(process.env.MONGO, { useNewUrlParser: true, useUnifiedTopology:
     });
 
 app.use('/api/user/',UserRouter)
+app.use('/api/auth/',AuthRouter)

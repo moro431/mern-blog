@@ -5,6 +5,7 @@ import SignIn from './pages/SignIn';
 import SignUp from './pages/SignUp';
 import Projects from './pages/Projects';
 import Daschboard from './pages/Daschboard';
+import Header from './components/Header';
 
 export default function App() {
   return (
@@ -12,6 +13,7 @@ export default function App() {
     //   <h1 className="text-3xl text-red-500">hello</h1>
     // </div>
     <BrowserRouter>
+     <Header/>
       <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/about' element={<About />} />

@@ -1,6 +1,7 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
+import UserRouter from './routes/user.route.js'
 
 // Configuration de dotenv
 dotenv.config();
@@ -26,3 +27,5 @@ mongoose.connect(process.env.MONGO, { useNewUrlParser: true, useUnifiedTopology:
     .catch((err) => {
         console.error('Erreur de connexion à MongoDB :', err);
     });
+
+app.use('/api/user/',UserRouter)

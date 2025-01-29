@@ -3,6 +3,7 @@ import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import UserRouter from './routes/user.route.js'
 import AuthRouter from './routes/auth.route.js'
+import PostRouter from './routes/post.user.js'
 import cookieParser from 'cookie-parser';
 const app=express()
 app.use(express.json())
@@ -34,6 +35,7 @@ mongoose.connect(process.env.MONGO, { useNewUrlParser: true, useUnifiedTopology:
 
 app.use('/api/user/',UserRouter)
 app.use('/api/auth/',AuthRouter)
+app.use('/api/post/',PostRouter)
 
 app.use((err,req,res,next) => {
   const statusCode = err.statusCode || 500;
